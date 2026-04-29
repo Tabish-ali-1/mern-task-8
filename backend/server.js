@@ -28,6 +28,11 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'API is running' });
 });
 
+// Root route to prevent "Cannot GET /"
+app.get('/', (req, res) => {
+  res.send('Welcome to the RentSmart API! The backend is successfully running.');
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
